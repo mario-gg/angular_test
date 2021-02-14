@@ -1,0 +1,13 @@
+
+<h1>Login</h1>
+<form  (ngSubmit)="onSubmit()" [formGroup]="formulario" >
+  <div class="form-group" >
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="text" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <div *ngIf="formulario.get('email').hasError('required')">Input is required</div>
+
+    <input type="password" formControlName="password" class="form-control" id="password" aria-describedby="passHelp" placeholder="Enter password">
+    
+    <button type="button" name="ingresar" id="ingresar" value="Ingresar" class="btn btn-success" [disabled]="formulario.invalid" value="Ingresar" >Ingresar</button>
+  </div>
+</form>
