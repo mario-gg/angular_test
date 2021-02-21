@@ -59,7 +59,7 @@ describe('LoginComponentComponent', () => {
 
 
 
-  it('should return 2 on submit', ()=> {
+  it('Debería llamar al método onSubmit', ()=> {
 
     let userName = component.formulario.controls["email"]; 
     let password = component.formulario.controls["password"];
