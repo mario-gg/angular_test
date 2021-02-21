@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginComponentComponent } from './login-component.component';
 import { by } from 'protractor';
+import { DebugElement } from '@angular/core';
 
 describe('LoginComponentComponent', () => {
   let component: LoginComponentComponent;
@@ -58,18 +59,31 @@ describe('LoginComponentComponent', () => {
 
 
 
-
-
-  it('Should enable button on completed form',()=>{
-    component.ngOnInit();
-    //fixture.debugElement.query(By.css('#toggleButton')).triggerEventHandler('click', null);
-    let buttonSend = fixture.debugElement.query(By.css("button"));
-    expect(buttonSend.nativeElement.disabled).toBeTruthy();
-  });
-
-
   it('should return 2 on submit', ()=> {
-    let resultado = component.onSubmit();
-    expect(resultado).toBe(2);
+
+    let userName = component.formulario.controls["email"]; 
+    let password = component.formulario.controls["password"];
+    userName.patchValue("mguajardo.eecc@mineravallecentral.cl");
+    password.patchValue("1234567")
+
+    spyOn(fixture.componentInstance,'onSubmit')
+    let form = fixture.debugElement.query(By.css('form'));
+    form.triggerEventHandler('submit',null);
+    fixture.detectChanges();
+
+    // spyOn(fixture.componentInstance,'onSubmit')
+    // const boton: DebugElement = fixture.debugElement.query(By.css('#ingresar'));
+    // //click en el boton submit 
+    // //const compiled = fixture.nativeElement.querySelector('button').click();
+    // boton.nativeElement.click();
+    // fixture.detectChanges();
+
+    //expect(fixture.componentInstance.onSubmit).toHaveBeenCalled();
+    expect(fixture.componentInstance.onSubmit).toHaveBeenCalledWith();
   });
+
+
+
+
+
 });
