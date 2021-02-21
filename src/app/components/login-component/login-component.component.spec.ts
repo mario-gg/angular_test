@@ -71,15 +71,7 @@ describe('LoginComponentComponent', () => {
     form.triggerEventHandler('submit',null);
     fixture.detectChanges();
 
-    // spyOn(fixture.componentInstance,'onSubmit')
-    // const boton: DebugElement = fixture.debugElement.query(By.css('#ingresar'));
-    // //click en el boton submit 
-    // //const compiled = fixture.nativeElement.querySelector('button').click();
-    // boton.nativeElement.click();
-    // fixture.detectChanges();
-
-    //expect(fixture.componentInstance.onSubmit).toHaveBeenCalled();
-    expect(fixture.componentInstance.onSubmit).toHaveBeenCalledWith();
+    expect(fixture.componentInstance.onSubmit).toHaveBeenCalled();
   });
 
 
