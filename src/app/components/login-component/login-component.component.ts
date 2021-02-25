@@ -29,8 +29,12 @@ export class LoginComponentComponent implements OnInit {
   }
 
   onSubmit(){
+
+    
     console.log("here");
     return 1+1;
+
+
   }
 
 

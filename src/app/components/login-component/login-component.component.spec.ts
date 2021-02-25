@@ -74,6 +74,13 @@ describe('LoginComponentComponent', () => {
     expect(fixture.componentInstance.onSubmit).toHaveBeenCalled();
   });
 
+  it('Debería probar el retorno del método onSubmit' ,() => {
+    let resultado = fixture.componentInstance.onSubmit();
+    expect(resultado).toEqual(2);
+
+
+
+  });
 
 
 
